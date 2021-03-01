@@ -53,7 +53,7 @@ Si vous voulez **tester** votre configuration:
 Nous allons utiliser un simple projet utilisant la bibliothèque de **Stanford**.
 Ainsi, vous devez télécharger le code de début. Décomprésser le puis ouvrez le fichier **NameHash.pro** qui contient la configuration du projet.
 
-- <a href="{{site.baseurl}}/assets/code/ass/HW0_NameHash.zip"> Code de Départ</a>
+- <a href="{{ site.url }}{{site.baseurl}}/assets/code/ass/HW0_NameHash.zip"> Code de Départ</a>
 
 
 

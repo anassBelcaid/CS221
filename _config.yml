@@ -22,8 +22,8 @@ title: Introduction to Problem Solving with C++.
 email: a.belcaid@ueuromed.org
 description: >- # this means to ignore newlines until "baseurl:"
     An introductory course on basic techniques for problem solving.
-baseurl:  # the subpath of your site, e.g. /blog
-url:  # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: /CS221  # the subpath of your site, e.g. /blog
+url:  anassBelcaid.github.io # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: anassbelcaid1
 github_username:  anassBelcaid
 
