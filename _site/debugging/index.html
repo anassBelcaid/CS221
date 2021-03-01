@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CS221</title>
+    <title>Welcome to CS221</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="An introductory course on basic techniques for problem solving.">
-    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="canonical" href="http://localhost:4000/debugging/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -44,103 +44,70 @@
 
     <div class="page-content">
       <div class="wrap">
-      <div class="fig figcenter fighighlight">
-    <img src="http://localhost:4000/assets/logo1.png" width="24%" height="140">      
-    <img src="http://localhost:4000/assets/logo2.png" width="24%" height="140">      
-  <img src="http://localhost:4000/assets/logo3.png" width="24%" height="140">      
-  <img src="http://localhost:4000/assets/logo4.png" width="24%" height="140">      
+      <div class="post">
+
+  <header class="post-header">
+    <h1>Welcome to CS221</h1>
+  </header>
+
+  <article class="post-content">
+  <ol>
+  <li><a href="#goals">Objectifs</a></li>
+  <li><a href="#installQt">Installation QT</a></li>
+  <li><a href="#debug">Tutorial deboggage</a></li>
+</ol>
+
+<h2 id="objectifs"><a href="#goals">Objectifs</a></h2>
+<p><a name="goals"></a></p>
+
+<p>Bienvenue à cette première séance de <strong>Travaux pratiques</strong>. Le but est de:</p>
+
+<ul>
+  <li>Installer et configurer votre <strong>environnement intégré</strong> <a href="https://www.qt.io/product/development-tools">QT creator</a></li>
+  <li>Attacher des bibliothèques externes, comme <a href="https://www.url.com">stanford C++</a>.</li>
+  <li>Se familiariser  les fonctionnalités de <strong><a href="https://en.wikipedia.org/wiki/Debugging">debuging</a></strong>.</li>
+  <li>Utiliser ces techniques pour fixer des erreurs dans le <strong><a href="https://en.wikipedia.org/wiki/Bubble_sort">Tri par bulles</a></strong>.</li>
+</ul>
+
+<h2 id="installation-qt-creator"><a href="#installQt">Installation QT Creator</a></h2>
+<p><a name="installQt"></a></p>
+
+<p>Votre première tache consiste à installer et configurer <strong>QtCrator</strong>. C’est un
+<em>Environnement de développement intégré (IDE)</em> qui vous assiste dans toute les
+étapes ( écriture, compilation, débogage).</p>
+
+<p>Suivez les instructions dans le <a href="https://doc.qt.io/qt-5/gettingstarted.html">guide d’installation</a> en
+choisissant votre système d’exploitation.</p>
+
+<p>Si vous voulez <strong>tester</strong> votre configuration:</p>
+
+<ol>
+  <li>Lancer <strong>QtCreator</strong>.</li>
+  <li>Créer un nouveau projet.</li>
+  <li>Spécifier <code class="language-plaintext highlighter-rouge">Non Qt project</code></li>
+  <li>Pour la configuration choisissez <code class="language-plaintext highlighter-rouge">cmake</code></li>
+  <li>
+    <p>Si vous utiliser <code class="language-plaintext highlighter-rouge">git</code>, vous pouvez le choisir pour gérer les versions de
+votre programme.</p>
+  </li>
+  <li>Construire votre programme.</li>
+  <li>Lire et comprendre le contenu du fichier de configuration <code class="language-plaintext highlighter-rouge">CMakeLists.txt</code></li>
+</ol>
+
+<h2 id="tutorial-deboggage"><a href="#debug">Tutorial deboggage</a></h2>
+<p><a name="debug"></a></p>
+
+<p>Nous allons utiliser un simple projet utilisant la bibliothèque de <strong>Stanford</strong>.
+Ainsi, vous devez télécharger le code de début. Décomprésser le puis ouvrez le fichier <strong>NameHash.pro</strong> qui contient la configuration du projet.</p>
+
+<ul>
+  <li><a href="http://localhost:4000/assets/code/ass/HW0_NameHash.zip"> Code de Départ</a></li>
+</ul>
+
+
+  </article>
+
 </div>
-
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-bottom-width:1px;border-color:black;border-style:solid;border-top-width:1px;border-width:0px;
-  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-bottom-width:1px;border-color:black;border-style:solid;border-top-width:1px;border-width:0px;
-  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-c4ww{background-color:#cbcefb;border-color:inherit;text-align:center;vertical-align:top}
-.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
-.tg .tg-kfkg{background-color:#dae8fc;border-color:inherit;text-align:center;vertical-align:top}
-</style>
-<table class="tg">
-<thead>
-  <tr>
-      <th class="tg-c3ow"><b>Date</b><br></th>
-      <th class="tg-c3ow"><b>Topic</b></th>
-      <th class="tg-c3ow"><b>Reading</b></th>
-      <th class="tg-c3ow"><b>Documentation</b><br></th>
-      <th class="tg-c3ow"><b>Additional Material</b></th>
-      <th class="tg-c3ow"><b>Assignement</b></th>
-      <th class="tg-c3ow"><b>Location</b></th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-kfkg" colspan="7"><span style="font-weight:bold">Language
-            Basics</span></td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">08/03/2021</td>
-    <td class="tg-c3ow">Introduction</td>
-    <td class="tg-c3ow"><br> Ch.1</td>
-    <td class="tg-c3ow"><br> 
-        <a href="http://localhost:4000/intro/">Introduction</a></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"> <a href="http://localhost:4000/debugging/">
-            Welcome CS221<br></td>
-    <td class="tg-c3ow">TBA<br></td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">15/01/2021</td>
-    <td class="tg-c3ow">Turtle World<br></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow">Doc (Turtle)<br></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow">Box Fractal<br></td>
-    <td class="tg-c3ow">Discord (Salle Course)<br></td>
-  </tr>
-  <tr>
-    <td class="tg-c4ww" colspan="7">Os Interface</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">21/01/2021</td>
-    <td class="tg-c3ow">Os / Argparse / modules<br></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow">
-<a href="sys/sys/" target="_blank"> Integration System</a></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow">Percolation</td>
-    <td class="tg-c3ow">Discord (Salle Course)</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
-  </tr>
-</tbody>
-</table>
-
 
       </div>
     </div>
