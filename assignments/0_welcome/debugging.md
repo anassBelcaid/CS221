@@ -53,11 +53,20 @@ Si vous voulez **tester** votre configuration:
 Nous allons utiliser un simple projet utilisant la bibliothèque de **Stanford**.
 Ainsi, vous devez télécharger le code de début. Décomprésser le puis ouvrez le fichier **NameHash.pro** qui contient la configuration du projet.
 
-- <a href="{{ site.url }}{{site.baseurl}}/assets/code/ass/HW0_NameHash.zip"> Code de Départ</a>
+- <a href="{{ site.url }} {{site.baseurl}}/assets/code/ass/HW0_NameHash.zip"> Code de Départ</a>
 
 
+1. Ouvir le project `NameHash.pro`.
+2. Exécuter le projet et saisissez vos informations.
+3. Maintenant on veut suivre et comprendre l'exécution de de code. 
+    - Chercher la ligne **66** dans le fichier `name_hash.cpp`
+    - Cette ligne contient le code suivant `ch = tolower(ch)`
+    - Ajouter un **breakpoint** dans cette ligne.
+    - Lancer maintenant le programme mais avec le mode **débogage**.
+4. Vous remarquez la flèche jaune qui indique l'état actuel de l'exécution.
 
 
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_arrow.png" width="80%" class="figcenter">
 
 
 
