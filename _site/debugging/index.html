@@ -101,7 +101,7 @@ votre programme.</p>
 Ainsi, vous devez télécharger le code de début. Décomprésser le puis ouvrez le fichier <strong>NameHash.pro</strong> qui contient la configuration du projet.</p>
 
 <ul>
-  <li><a href="http://localhost:4000 /assets/code/ass/HW0_NameHash.zip"> Code de Départ</a></li>
+  <li><a href="http://localhost:4000/assets/code/ass/HW0_NameHash.zip"> Code de Départ</a></li>
 </ul>
 
 <ol>
@@ -119,6 +119,128 @@ Ainsi, vous devez télécharger le code de début. Décomprésser le puis ouvrez
 </ol>
 
 <p><img src="http://localhost:4000/assets/debugging/deb_arrow.png" width="80%" class="figcenter" /></p>
+
+<blockquote>
+  <p>Apprenez a suivre toujours cette flèche, pour connaitre l’emplacement ou l’état
+d’exécution de votre programme.</p>
+</blockquote>
+
+<p>Maintenant, on se concentre sur le panneau en bas. Il s’appelle <code class="language-plaintext highlighter-rouge">Pile
+d'exécution</code>.</p>
+
+<p><img src="http://localhost:4000/assets/debugging/deb_call_stack.png" width="80%" class="figcenter" /></p>
+
+<p>Ce panneau, vous montre les <strong>appels</strong> régis par la fonction <strong>main</strong>.</p>
+
+<p>A partir de ce panneau, on peut remarquer qu’on est dans la fonction <code class="language-plaintext highlighter-rouge">nameHash</code>
+ qui est était appelée dans la fonction <code class="language-plaintext highlighter-rouge">main</code>.</p>
+
+<blockquote>
+  <p>Essayer de cliquer sur la fonction <code class="language-plaintext highlighter-rouge">main</code>, vous allez observer que vous allez
+être déplacer automatiquement dans la fonction main.</p>
+</blockquote>
+
+<blockquote>
+  <p>Très très utile pour suivre les sources d’appels et ainsi découvrir la source
+d’erreur.</p>
+</blockquote>
+
+<p>A ce stade on connait où on est dans le programme, La hiérarchie des fonctions
+appelées. Mais qu’en est il des valeurs des variables?</p>
+
+<p>On peut voir une liste des variables locales ainsi que leur valeur dans le
+panneau à droite.</p>
+
+<p><img src="http://localhost:4000/assets/debugging/deb_var_state.png" width="80%" height="200px" class="figcenter" /></p>
+
+<p>Ce panneau vous montre les variables en utilisation, leur <strong>types</strong> et leurs
+ valeurs. Par exemple on peut constater qu’on as accès à une variable <code class="language-plaintext highlighter-rouge">ch</code> de
+ type <strong>char</strong> et qui possède la valeur <code class="language-plaintext highlighter-rouge">B</code>.</p>
+
+<blockquote>
+  <p>Quel est le type et la valeur de la variable <code class="language-plaintext highlighter-rouge">hashVal</code>?</p>
+</blockquote>
+
+<p>Dans la suite on va exécuter le programme étape par étape et voir l’évolution de
+ces variables an action.</p>
+
+<p>Commençons notre investigation de la boucle for</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="n">ch</span><span class="o">:</span> <span class="n">first</span> <span class="o">+</span> <span class="n">last</span><span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* Convert the input character to lower case. The numeric values of
+         * lower-case letters are always less than 127.
+         */</span>
+        <span class="n">ch</span> <span class="o">=</span> <span class="n">tolower</span><span class="p">(</span><span class="n">ch</span><span class="p">);</span>
+        <span class="n">hashVal</span> <span class="o">=</span> <span class="p">(</span><span class="n">kSmallPrime</span> <span class="o">*</span> <span class="n">hashVal</span> <span class="o">+</span> <span class="n">ch</span><span class="p">)</span> <span class="o">%</span> <span class="n">kLargePrime</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Cette boucle va itérer les <strong>caractères</strong> de mon nom complet. La première
+lettre est <code class="language-plaintext highlighter-rouge">B</code>.</p>
+
+<p>Exécutons, maintenant la ligne <code class="language-plaintext highlighter-rouge">tolower(ch)</code> qui change une lettre en
+<strong>minuscule</strong>. Pour ce faire on doit maitriser les actions suivantes:</p>
+
+<p><img src="http://localhost:4000/assets/debugging/deb_action_buttons.png" width="50%" height="50px" align="center" /></p>
+
+<p>Mettre la sourie sur chaqune pour connaitre leurs noms.</p>
+
+<p>. <strong>Step over</strong>: Progresser d’une ligne dans le programme. Cliquer sur cette
+icone et vous allez observer qu’on vient d’exécuter la ligne <code class="language-plaintext highlighter-rouge">tolower(ch)</code> et
+que maintenant la variable <code class="language-plaintext highlighter-rouge">ch=b</code> dans la zone des variables.</p>
+
+<p><img src="http://localhost:4000/assets/debugging/deb_var_change.png" width="80%" height="200px" align="center" /></p>
+
+<blockquote>
+  <p>Observer la flèche <strong>jaune</strong> pour identifier votre emplacement.</p>
+</blockquote>
+
+<p>Passons maintenant à la ligne suivante qui calcule une valeur de <code class="language-plaintext highlighter-rouge">hashage</code> pour
+ note caractère.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hashVal</span> <span class="o">=</span> <span class="p">(</span><span class="n">kSmallPrime</span> <span class="o">*</span> <span class="n">hashVal</span> <span class="o">+</span> <span class="n">ch</span><span class="p">)</span> <span class="o">%</span> <span class="n">kLargePrime</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Exécutons une autre fois le bouton <code class="language-plaintext highlighter-rouge">step over</code> pour voir l’effet de cette ligne.</p>
+
+<p><img src="http://localhost:4000/assets/debugging/deb_hash_upd.png" width="80%" height="150px" align="center" /></p>
+
+<p>Une fois encore, on obtient la valeur calculée pour notre caractère <strong>b</strong>.</p>
+
+<blockquote>
+  <p>Continuer à avancer jusqu’à vous sentez que vous avez bien maitrisé la
+ fonction <strong>nameHash</strong>.</p>
+</blockquote>
+
+<p>. <strong>Step out</strong>: Avancer l’éxécution juste par des simples linges, sera trop
+<strong>fastidieux</strong>, si notre programme se compose d’une longue boucle comme le cas
+ici. Pour se faire on peut exécuter le code jusqu’à la <strong>fin d’une fonction</strong>
+par le bouton <code class="language-plaintext highlighter-rouge">step out</code>.</p>
+
+<ol>
+  <li>Cliquer sur ce bouton, puis observer votre espace des variables.</li>
+  <li>Vous devez remarquer que toutes les variables <strong>locales</strong> associées à la
+fonction <code class="language-plaintext highlighter-rouge">nameHash</code> sont disparus.</li>
+</ol>
+
+<p><img src="http://localhost:4000/assets/debugging/deb_step_out.png" width="50%" height="80px" align="center" /></p>
+
+<ol>
+  <li>Observer la valeur finale du <code class="language-plaintext highlighter-rouge">hashValue</code></li>
+  <li>Identifier l’emplacement de la flèche jaune qui indique notre <strong>retour</strong> à
+la fonction <code class="language-plaintext highlighter-rouge">main</code>.</li>
+</ol>
+
+<blockquote>
+  <p>Observer aussi, qu’à ce stade on possède aussi la valeur de retour de la
+fonction</p>
+</blockquote>
+
+<p><img src="http://localhost:4000/assets/debugging/deb_return_value.png" width="50%" height="60px" align="center" /></p>
+
+<p>Chose intéressante,car on peut voir l’état de la fonction avant
+ l’<strong>affectation</strong>. Exécuter votre final <strong>Step over</strong>, pour réaliser cette
+ affection puis observer votre variable <code class="language-plaintext highlighter-rouge">hashValue</code>.</p>
 
 
   </article>
