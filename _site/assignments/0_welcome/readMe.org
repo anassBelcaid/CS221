@@ -1,0 +1,15 @@
+* Assignemetn 0: Welcome to CS221
+
+** TODO Setup QT Creator
+   - [ ] Download QT tool
+   - [ ] Choosing components
+** TODO Setup the Stanford library (We'll see)
+   - [ ] Download the link.
+   - [ ] Set up the project.
+   - [ ] Empty project.
+** TODO Walkthrought Hash your name
+   - [ ] Revisit the walkthrought
+   - [ ] Write the tutorial
+** TODO Exercice Debug Bubble sort
+   - [ ] Execute the code.
+   - [ ] Find the error.
