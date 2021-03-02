@@ -8,6 +8,7 @@ permalink: /debugging/
 1. [Objectifs](#goals)
 2. [Installation QT](#installQt) 
 3. [Tutorial deboggage](#debug)
+4. [Exercice: Débogage Tri à bulles](#bublesort)
 
 ## [Objectifs](#goals)
 <a name='goals'></a>
@@ -187,5 +188,18 @@ fonction
 
 
 
+## [Exercice: Débogage Tri à bulles](#bublesort)
+<a name='bublesort'></a>
+
+
+Pour tester vos connaissance en **débogage** télécharger le project:
+
+- <a href="{{ site.url }}{{ site.baseurl }}/assets/code/ass/debuging_exo.zip">Tri à bulles </a>
+
+
+1. Télécharger puis décompresser le fichier `debuging_exo.zip`.
+2. Ouvre le projet avec **QtCretaor**.
+3. Exécute votre code ( vous aurez une erreure de **mémoire**)
+4. Utiliser vos nouvelles techniques pour identifier ces **bugs**.
 
 
