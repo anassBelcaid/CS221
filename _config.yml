@@ -31,11 +31,22 @@ github_username:  anassBelcaid
 markdown: kramdown
 permalink : pretty
 highlighter: rouge
+highlight_theme: github  # https://github.com/jwarby/jekyll-pygments-themes
+
+# kramdown:
+#   auto_ids: true
+#   syntax_highlighter: rouge
+#   highlight_theme: zenburn
 
 kramdown:
-  auto_ids: true
-  syntax_highlighter: rouge
-  hightlight_theme: zenburn
+  input: GFM
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+      start_line: 1
 
 # Exclude from processing.
 # The following items will not be processed, by default.
