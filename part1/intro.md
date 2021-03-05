@@ -92,7 +92,7 @@ On peut résumer les trois piliers de cours comme:
 2. Comment peut on envoyer un email d'un ville à une autre.
 
 <div class="fig figcenter fighighlight">
-  <img src="/assets/intro/rooting_problem.png" width="50%">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/intro/rooting_problem.png" width="50%">
   <div class="figcaption"> Etant donné qu'on veut envoyer un mail d'une certaine
   ville à une autre et une liste de ordinanteurs connectées. Quel est le chemin
   effectif pour délivrer ce mail. La aussi, la modélisation de ce problème en
@@ -111,11 +111,11 @@ résoudre un large panorama de problèmes complèxes.
 
 
 <div class="fig figleft ">
-  <img src="/assets/intro/fractal_tree.jpg" width="40%">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/intro/fractal_tree.jpg" width="40%">
 </div>
 
 <div class="fig figright ">
-  <img src="/assets/intro/fractal_tree.jpg" width="40%">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/intro/fractal_tree.jpg" width="40%">
   <div class="figcaption"> Image d'un arbre <b>fractal</b>, Si vous zoumer sur une
   partie de cette arbre, vous allez trouver la <b> même image</b></div>
 </div>
@@ -131,7 +131,7 @@ L'un des objectifs importants de ce cours est de pouvoir analyser et comparer la
 
 
 <div class="fig figcenter ">
-  <img src="/assets/intro/complexity.png" width="60%">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/intro/complexity.png" width="60%">
   <div class="figcaption"> Playground pour explorer la différence entre les
   algorithmes de tri.</b></div>
 </div>
@@ -180,7 +180,7 @@ l'extension euromed.org)
 
 
 <div class="fig figcenter fighighlight">
-  <img src="/assets/intro/piazza.png">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/intro/piazza.png">
   <div class="figcaption">  Plaforme Piazza pour poser des questions. Votre
   ressource principale pour chercher des réponses.</div>
 </div>
@@ -206,7 +206,7 @@ poser des questions au professeur.
 le calcul est **à priori** comme suit
 
 <div class="fig figcenter fighighlight">
-  <img src="/assets/intro/grades_distribution.png">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/intro/grades_distribution.png">
   <div class="figcaption">  Distribution de la note finale du module.</div>
 </div>
 
@@ -220,7 +220,7 @@ pour vous entrainner aux notions du cours. D'ailleurs, on va souvement vous
 reférer à quelques questions du ce site.
 
 <div class="fig figcenter fighighlight">
-  <img src="/assets/intro/code_step_step.png">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/intro/code_step_step.png">
   <div class="figcaption">  Votre salle d'enstrainement où vous pouvez vous
   exercez sur différentes notions du cours.</div>
 </div>
@@ -245,7 +245,7 @@ les framework **deep learning**.
 
 
 <div class="fig figcenter fighighlight">
-  <img src="/assets/intro/lang_popularity.png" width="400px">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/intro/lang_popularity.png" width="400px">
   <div class="figcaption"> Worldwide language popolarity comparison: Mar 2021 compared to a year ago</div>
 </div>
 
@@ -495,13 +495,13 @@ n'importe quel programmeur sérieux. Savoir utiliser la structure de donnée
 centaines.
 
 <div class="fig figleft ">
-  <img src="/assets/intro/arrays.png" width="30%" >
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/intro/arrays.png" width="30%" >
 </div>
 <div class="fig figleft ">
-  <img src="/assets/intro/linked_list.png" width="30%" >
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/intro/linked_list.png" width="30%" >
 </div>
 <div class="fig figleft ">
-  <img src="/assets/intro/trees.png" width="30%" >
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/intro/trees.png" width="30%" >
 </div>
 
 <div class="figcaption"> Ensembe des structures de données basiques pour la résolution de problème. A gauche, vous trouvez votre structure de base qui est un <b>tableau</b>. Cette structure est dite linéaire puisque elle offe un accès simple à ces composantes. La deuxième est une <b>Liste chainée </b> qui est aussi linéaire mais dont les éléments ne sont pas contigues dans la mémoire. Finalement à droite on trouve un <b> arbe </b> qui est une structure basique pour représenter la connectivité entre éléments.</div>
