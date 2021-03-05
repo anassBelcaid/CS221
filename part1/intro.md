@@ -26,7 +26,6 @@ permalink: /intro/
 
 
 
-
 ## [**Objectifs**](#objectifs)
 <a name='objectifs'></a>
 
@@ -42,18 +41,18 @@ Cependant la notion de problème complèxe evolue avec le temps. Voici une liste
 de problèmes:
 
 <div class="fig figcenter fighighlight">
-  <img src="/assets/intro/autonomous_driving.png" width="50%" >
+  <img src="{{ site.url }}{{site.baseurl}}/assets/intro/autonomous_driving.png" width="50%" >
   <div class="figcaption"> Exploitation d'imitation de les self driving cars. J.Zhou and al 2021</div>
 </div>
 
 <div class="fig figcenter fighighlight">
-  <img src="/assets/intro/instantanious_directions.png" width="60%">
+  <img src="{{ site.url }}{{site.baseurl}}/assets/intro/instantanious_directions.png" width="60%">
   <div class="figcaption"> Calculer le chemin le plus court entre deux points
   étant données informations instantanés.</div>
 </div>
 
 <div class="fig figcenter fighighlight">
-  <img src="/assets/intro/speech_recognition.png" width="50%">
+  <img src="{{ site.url }}{{site.baseurl}}/assets/intro/speech_recognition.png" width="50%">
   <div class="figcaption"> Le problème de reconnaissance de discours.</div>
 </div>
 
@@ -82,7 +81,7 @@ On peut résumer les trois piliers de cours comme:
 1. Comment calculer **distance moyenne** entre deux utilisateurs *facebook*.
 
 <div class="fig figcenter fighighlight">
-  <img src="/assets/intro/facebook_distance.png" width="50%">
+  <img src="{{ site.url }}{{site.baseurl}}/assets/intro/facebook_distance.png" width="50%">
   <div class="figcaption"> Quelle est la distance moyenne entre deux utilisateurs
   aléatoires en facebook. Les techniques de théorie de graphe sont souvent
   utilisés pour répondre a ce type de question. Ainsi on peut reformuler la
