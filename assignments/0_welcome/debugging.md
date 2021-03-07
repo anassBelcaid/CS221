@@ -67,7 +67,7 @@ Ainsi, vous devez télécharger le code de début. Décomprésser le puis ouvrez
 4. Vous remarquez la flèche jaune qui indique l'état actuel de l'exécution.
 
 
- <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_arrow.png" width="80%" class="figcenter">
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_arrow.png" class="figcenter">
 
 
 > Apprenez a suivre toujours cette flèche, pour connaitre l'emplacement ou l'état
@@ -78,7 +78,7 @@ Maintenant, on se concentre sur le panneau en bas. Il s'appelle `Pile
 d'exécution`.
 
 
- <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_call_stack.png" width="80%" class="figcenter">
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_call_stack.png"  class="figcenter">
 
  Ce panneau, vous montre les **appels** régis par la fonction **main**.
 
@@ -99,7 +99,7 @@ appelées. Mais qu'en est il des valeurs des variables?
 On peut voir une liste des variables locales ainsi que leur valeur dans le
 panneau à droite.
 
- <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_var_state.png" width="80%"  height="200px" class="figcenter">
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_var_state.png" class="figcenter">
 
  Ce panneau vous montre les variables en utilisation, leur **types** et leurs
  valeurs. Par exemple on peut constater qu'on as accès à une variable `ch` de
@@ -131,7 +131,7 @@ Exécutons, maintenant la ligne `tolower(ch)` qui change une lettre en
 **minuscule**. Pour ce faire on doit maitriser les actions suivantes:
 
 
- <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_action_buttons.png" width="50%"  height="50px" align="center">
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_action_buttons.png" align="center">
 
 Mettre la sourie sur chaqune pour connaitre leurs noms.
 
@@ -139,7 +139,7 @@ Mettre la sourie sur chaqune pour connaitre leurs noms.
 icone et vous allez observer qu'on vient d'exécuter la ligne `tolower(ch)` et
 que maintenant la variable `ch=b` dans la zone des variables.
 
- <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_var_change.png" width="80%"  height="200px" align="center">
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_var_change.png"  align="center">
 
  > Observer la flèche **jaune** pour identifier votre emplacement.
 
@@ -153,7 +153,7 @@ hashVal = (kSmallPrime * hashVal + ch) % kLargePrime;
 
 Exécutons une autre fois le bouton `step over` pour voir l'effet de cette ligne.
 
- <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_hash_upd.png" width="80%"  height="150px" align="center">
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_hash_upd.png"  align="center">
 
  Une fois encore, on obtient la valeur calculée pour notre caractère **b**.
 
@@ -170,7 +170,7 @@ par le bouton `step out`.
 2. Vous devez remarquer que toutes les variables **locales** associées à la
    fonction `nameHash` sont disparus.
 
- <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_step_out.png" width="50%"  height="80px" align="center">
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_step_out.png"  align="center">
 
  1. Observer la valeur finale du `hashValue`
  2. Identifier l'emplacement de la flèche jaune qui indique notre **retour** à
@@ -180,7 +180,7 @@ par le bouton `step out`.
 fonction 
 
 
- <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_return_value.png" width="50%"  height="60px" align="center">
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/debugging/deb_return_value.png"  align="center">
 
  Chose intéressante,car on peut voir l'état de la fonction avant
  l'**affectation**. Exécuter votre final **Step over**, pour réaliser cette
