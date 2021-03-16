@@ -367,3 +367,83 @@ cout<<"Maintenant "<<s<<endl;
 ## [String Stream](#streams)
 <a name='streams'></a>
 
+La **concaténation** de chaine de caractères est très utile. Cependant, elle est
+couteuse car on doit **réallocer** la mémoire en cas que la **capacité**  de la
+chaine qui recevante ne permet pas de stocker la chaine ajoutée. Une solution
+plus adaptée à la manipulation des chaines dynémiques le [string steam](https://www.cplusplus.com/reference/sstream/stringstream/). Cette classe est déclarée dans la bibliothèque `<sstream>`. Elle offre la possibilité de contruire des chaines avec les opérateurs de flux comme `<<` et `>>`. La liste des méthode à retenir est:
+
+- **operator<<**: pour acquérir des valeurs
+- **operator>>**: pour extraire des valeurs.
+- **str**: obtenir la chaine de données.
+- **clear**: supprimer le contenu.
+
+
+Supposons qu'on possède les informations d'un étudiant `("Adil", "Fes", 23)` et
+qu'on peut contruire un **string** pour cet étudiant de la forme `name [state:
+Fes] [age: 23]`. On peut réaliser cette opération par la **concaténation**, mais
+une maniere plus simple est d'utiliser les flux.
+
+
+```cpp
+Stduent S{"Adil", "Fes", 23};
+
+//Construire un flux vid
+stringstream SS;
+
+//Envoyer les information de S à SS
+ss<<S.name<<" [state: "<<S.state<<"] [age: "<<S.age<<"]";
+
+//Obtenir la chaine de SS
+cout<<ss.str()<<endl;
+```
+
+Inversement, on peut aussi utiliser les flux de chaines comme flux d'éntrée!!.
+Supposons qu'on possède une chaine de mots séparées par des espaces. 
+
+
+```cpp
+string str("Hello from the dark side");
+```
+
+Supposons qu'on veut obtenir tous ces mots? La solution simple ici est contruire
+un flux sur `str` et de contruire une boucle qui va lire tous ces mots.
+
+
+```cpp
+// Flux de chaine construit sur str
+stringstream SS(str);
+
+//String pour lire les mots
+string word;
+
+//Boule de lecture
+while( SS>>word)
+{
+    cout<<word<<endl;
+}
+```
+
+Un exemple est de convertir les nombre entre bases. Supposons par exemple qu'on
+veut obtenir la réprésentation du nombre **61** en **héxadécimal**. 
+
+
+```cpp
+int number = 61;
+
+stringstream S;
+//lire la valeur de number mais en hex
+S<<hex<<number;
+
+//Afficher cette valeur
+cout<<S.str()<<endl;
+```
+
+#### Exercice
+
+
+> Ecrire un *fonction* qui reçoit une chaine de nombre séparées par virgule. La
+fonction doit afficher le contenu de ces  nombres séparés par une nouvelle
+ligne.
+
+
+
