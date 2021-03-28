@@ -5,6 +5,13 @@ date   :  2021/03/28
 permalink : /vectors/
 ---
 
+
+<div class="figcenter">
+<img 
+    src="{{ site.url }}{{ site.baseurl }}/assets/vectors/banner.png"
+    width="300"
+    height="300">
+</div>
 1. [Les Collections de C++](#collections)   
     - [Collections STL](#stlcollections)
     - [Class Vector](#vector)
