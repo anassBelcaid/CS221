@@ -19,10 +19,7 @@ permalink : /vectors/
     - [Grille](#grid)
     - [démonstration](#demo)
 
-3. [Applications](#applications)
-    - [Manipulation d'image](#imagemanip)
-    - [jeu de vie](#gameLife)
-    - [TicToc](#tictoc)
+3. [Pratice Problem](#practice)
     
 ## [Les Collections de C++](#collections)
 <a name='collections'></a>
@@ -292,10 +289,130 @@ une interface simple pour la manipulation des vecteurs qui est très
 bibliothèque Stanford. Il faut aussi inclure l'entête "vector.h"
 
 
+#### Création d'un Vecteur
+
+
+- Le containeur `Vector` est aussi un **template**, i.e. vous devez spécifier un
+type pour **type** dans la déclaration.
+
+- Quand le vecteur est crée, il est **vide**.
+
+```cpp
+//Creating the array
+Vector<int> V;
+
+//Adding some elements
+V.add(3);      //Adding at the end O(1) amortized
+V.add(4);
+V.add(5);
+
+//The operator << is already overloaded
+cout<<V<<endl;
+```
+
+
+#### Fonctions
+
+
+Voici une liste de fonctions utiles dans cette classe:
+
+- `vec.size()`: Renvoie le nombre d'éléments.
+- `isEmpty()`: Renvoie **true** en cas que le vecteur est vide.
+- `vec[i]`: indexage simple
+- `vec.add(value)`: Ajouter une valeur à la fin.
+- `vec.insert(index, value)` : insérer une valeur à l'indice **index**.
+- `vec.remove(index)`: Supprime la valeur à l'indice **index**.
+- `vec.clear()`:  Détruit toutes les variables.
+
+ Pour une liste **exhaustive** d'opérateurs je vous renvoie dans la page
+ [stanford Vector](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1212/library/documentation/Vector.html).
+
 ### [Grids](#grid)
 <a name='grid'></a>
 
+Une autre classe intéressante pour simplifier la manipulation des **matrice**
+est la classe `grid`.
 
-### Démonstration
-<a name='demo'></a>
+- Qu'est ce qu'il représente:
+    - Une matrice 2D avancée.
+    - Très utile pour des problèmes de connectivité.
+    - Implémentée dans la bibliothèque `"grid.h"`
+- Détails importants:
+    - Constructeur par défaut, initialise une matrice **vide**.
+    - Vérifie si les indices respectent les **dimensions**.
+
+
+
+```cpp
+//Creating a grid with (4,4)
+Grid<bool> G(4,4);
+
+//Adding some elements
+G[0][0] = true;
+G[1][2] = false;
+
+//Print the 2D form
+cout<<G.toString2D()<<endl;
+
+
+//Attempt to access invalid index
+G[4][1];  //Raise an exception
+```
+
+
+#### Fonctions utiles:
+
+- `grid.numRows()`: nombre de lignes.
+- `grid.numCols()`: nombre de colonnes.
+- `grid[i][j]`: Accès à l'élément $$A(i,j)$$. 
+- `grid.resize(rows, cols)`: change la taille de la matrice.
+- `grid.inBounds(row, col)`: Vérifie si $$(row, col)$$ est dans les limites.
+
+
+Pour une liste exaustive de fonciton on vous refère la documentation officielle
+[Grid](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1212/library/documentation/Grid.html).
+
+
+### [Practice](practice)
+<a name='practice'></a>
+
+
+1.[<img src="{{site.url }}{{ site.baseurl}}/assets/logo_step.png" width="30"> Add Stars](https://www.codestepbystep.com/problem/view/cpp/collections/vector/addStars)
+
+> Ecire une fonction **addStars** qui accepète une référence sur un Vector de
+chaines. Puis il modifie ce vecteur **sur place** en ajoutant "*" entre chaque
+élément de ce vecteur.
+
+
+**Exemple**
+
+```shell
+addStars({"the", "quick", "brown", "fox"})===> {"*", "the", "*", "quick", "*",
+"brown", "*", "fox", "*"}
+
+```
+
+
+
+2.[<img src="{{site.url }}{{ site.baseurl}}/assets/logo_step.png" width="30"> Grid Mystery](https://www.codestepbystep.com/problem/view/cpp/collections/grid/gridMystery)
+
+Quel sera la sortie du programme suivant:
+
+```cpp
+Grid<int> g(4,3);
+
+for(int r=0; r < g.numRows(); r++) {
+    for(int c=0; c < g.numCols(); c++) {
+        g[r][c] = c+1;
+    }
+}
+
+for(int c= 0; c < g.numCols(); c++){
+    for(int r = 1; r<g.numRows(); r++) {
+        g[r][c] += g[r-A][c];
+    }
+}
+```
+
+
 
