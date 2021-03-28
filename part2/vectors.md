@@ -261,10 +261,38 @@ $$
 ## [Conteneurs Stanfords](#stanford)
 <a name='stanford'></a>
 
-### Vecteur Stanford]
+La bibliothèque [StanfordCPP](https://web.stanford.edu/dept/cs_edu/cppdoc/) est
+un bibliothèque offrant des **outils** et des **interfaces** qui facilite la
+manipulation des **collections**. Elle offre aussi, une simple bibliothèque
+**graphique** permettant d'afficher des objets **2D** pour ullistrer différents
+aspect d'algorithmiques avancés comme la **récurrences** et les parcours de
+**graphes**.
+
+
+Nous allons nous concentrer, tout d'abord à leur implémentation des des
+**collections** 
+
+- Vector.
+- Grid.
+
+### [Vecteur Stanford](#stanfVect)
 <a name='stanfVect'></a>
 
-### Grilles 
+La classe
+[Vector](https://web.stanford.edu/dept/cs_edu/cppdoc/Vector-class.html), offre
+une interface simple pour la manipulation des vecteurs qui est très
+**similaire** au conteneur `vector`.
+
+
+- Grande similarité avec la classe `ArrayList`.
+- Vecteur qui change **dynamiquement** sa capacité.
+- Chaque élément est caractérisé par son **indice**.
+
+> Pour utiliser cette classe, il vous faut un projet configuré avec la
+bibliothèque Stanford. Il faut aussi inclure l'entête "vector.h"
+
+
+### [Grids](#grid)
 <a name='grid'></a>
 
 
