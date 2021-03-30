@@ -36,9 +36,13 @@ opérations basiques:
 2. [Vectors](#vectors)
     - [Collection Mystery1](#vectorMystery1)
     - [Comulative](#cumulative)
-    - [Histogram][#histogram)
+    - [Histogram](#histogram)
 
 3. [Grids](#grids)
+    - [CrossSum](#crosssum)
+    - [Flatten](#flatten)
+    - [Swap](#swap)
+    - [multTable](#multtable)
 
 
 
@@ -246,3 +250,85 @@ fonction doit afficher
 
 ## [Grids](#grids)
 <a name='grids'></a>
+
+
+### [CrossSum](#crosssum)
+<a name='crosssum'> </a>
+
+Dans le problème [Cross Sum](https://www.codestepbystep.com/problem/view/cpp/collections/grid/crossSum), on nous demande d'écrire une fonction
+nommée `crossSum` qui reçoit une **rérérence** sur un grille et deux indices
+**row** et **col**. Cette fonction doit renvoyer la somme de la ligne **row** et
+la colonne **col** ( sans répétition).
+
+
+Par exemple, pour la matrice
+
+```
+G = ((1,2,3),
+     (4,5,6),
+     (7,8,9))
+```
+
+et les valeurs `row=1`, `col=1`, la fonction doit renvoyer  `2+5+8+4+6`
+
+
+
+### [Flatten](#flatten)
+<a name='flatten'></a>
+
+Le but de l'exercice [Flatten](https://www.codestepbystep.com/problem/view/cpp/collections/grid/flatten) et de contruire un vecteur à partir d'une matrice (Grid).Ainsi, on vous demande d'écrire une fonction `flatten` qui reçoit une référence sur une Grille **G** et construit un `Vector` en regroupant les éléments de $$G$$ **ligne par ligne**.
+
+Par exemple pour l'appel de la fonciton sur la matrice suivante:
+
+$$
+\begin{pmatrix}
+3 & 8 & 12\\
+2 & 9 & 17\\
+43 & -8 & 46\\
+203 & 14 & 97
+\end{pmatrix}
+$$
+
+
+renvoie le vecteur $$V=(3, 8, 12, 2, 9, 17, 43, -8, 46, 203, 14, 97)$$.
+
+
+### [Swap](#swap)
+<a name='swap'></a>
+
+
+Pour l'exercice  [Swap](https://www.codestepbystep.com/problem/view/cpp/collections/grid/mirror), on vous demande d'écrire une fonction `mirror` qui accepte une référence sur un **Grid** $G$ qui est carré et qui la **permute** dans le sens de la diagonale principale.
+
+
+$$
+\begin{pmatrix}
+1& 4 & 5\\
+3 & 8 & 9\\
+1 & -2 & 11
+\end{pmatrix}
+\Longrightarrow
+
+\begin{pmatrix}
+1& 3 & 1\\
+4 & 8 & -2\\
+5 & 9 & 11
+\end{pmatrix}
+$$
+
+
+### [multTable](#multtable)
+<a name='multtable'></a>
+
+L'exercice [mult Table](https://www.codestepbystep.com/problem/view/cpp/collections/grid/multTable) vous demande d'écrire une fonction `multTable` qui reçoit une référence sur une grille $$G$$ et un entier **max** et qui remplie cette grille par les éléments de la **table de multiplication**.
+
+Par exemple pour l'appel de la fonction avec $$max=5$$, on aura la grille suivante:
+
+```
+   col    0  1  2  3  4
+row
+ 0      { {0, 0, 0, 0, 0},
+ 1       {0, 1, 2, 3, 4},
+ 2       {0, 2, 4, 6, 8},
+ 3       {0, 3, 6, 9, 12},
+ 4       {0, 4, 8, 12, 16} }
+ ```
