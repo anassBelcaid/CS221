@@ -1,0 +1,18 @@
+
+digraph{
+     node [ shape=record, fontsize=12];
+     rankdir=LR;
+     variable [
+
+        label="var|Erick|<ad> 120";
+     ];
+
+     pointer [
+     label="<pt> pointer"
+     ];
+
+     pointer:pt -> variable:ad [label="Point to", color=orange
+     arrowhead=open penwidth=2 ]
+
+         
+}

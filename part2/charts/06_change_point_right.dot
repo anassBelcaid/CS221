@@ -1,0 +1,22 @@
+
+digraph{
+     node [ shape=record, fontsize=12];
+     rankdir=LR;
+     a [
+
+        label="a|13|<ada> 110";
+     ];
+
+     b [
+
+        label="b|15|<adb> 150";
+     ];
+     pointer [
+     label="<pt> pointer"
+     ];
+
+     pointer:pt -> b:adb [label="Point to", color=orange
+     arrowhead=open penwidth=2 ]
+
+         
+}

@@ -57,23 +57,11 @@ gigantesque tableau. Les **boites** peuvent contenir différent **types**,
 cependant les **indices** associée à chaque boite **ne change pas**.
 
 
-{% graphviz %}
-digraph {
-    ranksep =0;
-    node [shape=plaintext, fontcolor=red, fontsize=18];
-    "Values:" -> "Index:" [color=white];
 
-    node [shape=record, fontcolor=black, fontsize=14, width=4.75, fixedsize=true];
-    values [label="<f0> A[0] | <f1> A[1] | <f2> A[2] | <f3> A[3] | <f4> A[4] | <f5> A[5]", color=blue, fillcolor=lightblue, style=filled];
-    indices [label="0 | 1 | 2 | 3| 4 | 5",color="white"];
+<div class="figcenter">
+<img src="{{ site.url }}{{ site.baseurl }}/assets/pointers/illustration_memory.png">
 
-    { rank=same; "Values:"; values }
-    { rank=same; "Index:"; indices }
-
-    edge [color=blue];
-}
-{% endgraphviz %}
-
+</div>
 - En **C++**, l'emplacement de chaque boite est donnée par son adresse qui nous
 donne son emplacement exacte dans la `RAM`.
 
@@ -81,21 +69,9 @@ Pour mieux comprendre la notion d'adresse, nous allons adopter la représentatio
 suivante pour une variable
 
 <div class= "figcenter">
-{% graphviz %}
-graph{
-     node [ fontname="Handlee", shape=record, fontsize=12];
-     rankdir="LR";
-     
-     subgraph cluster_frontend {
-         ranksep=0;
-    label="Variable";
-    value ;
-    Address [fillcolor = forestGreen, style=filled, background="transparent"];
-  }
-         
-}
-{% endgraphviz %}
+<img src="{{ site.url }}{{ site.baseurl }}/assets/pointers/variable_representation.png">
 <div class="figcaption">
+
 Représentation d'une variable avec son <b>nom</b>, la <b>valeur</b> qu'elle
 contient et puis ce qui nous intéresse son <b> adresse</b>.
 </div>
@@ -106,20 +82,7 @@ Par exemple le diagramme suivant
 
 
 <div class= "figcenter">
-{% graphviz %}
-graph{
-     node [ fontname="Handlee", shape=record, fontsize=12];
-     rankdir="LR";
-     
-     subgraph cluster_frontend {
-         ranksep=0;
-    label="name";
-    Erick;
-    "200" [fillcolor = forestGreen, style=filled, background="transparent"];
-  }
-         
-}
-{% endgraphviz %}
+<img src="{{ site.url }}{{ site.baseurl }}/assets/pointers/erick_variable.png">
 </div>
 
 représente une variable de type `string` nommée **name** qui contient la valeur
@@ -148,25 +111,7 @@ int *pointer = &var;
 
 
 <div class= "figcenter">
-{% graphviz %}
-digraph{
-     node [ shape=record, fontsize=12];
-     rankdir=LR;
-     variable [
-
-        label="var|Erick|<ad> 120";
-     ];
-
-     pointer [
-     label="pointer|<pt> 120|132"
-     ];
-
-     pointer:pt -> variable:ad [label="Point to", color=orange,
-     arrowhead=open, penwidth=2]
-
-         
-}
-{% endgraphviz %}
+<img src="{{ site.url }}{{ site.baseurl }}/assets/pointers/pointer_erick.png">
 <div class="figcaption">
 Illustration du mécanisme d'un pointeur qui stocke l'adresse d'une autre
 variable.
@@ -182,25 +127,7 @@ L'adresse du pointeur lui même n'as pas d'importance, ainsi, on se limitera au
 graphique suivant:
 
 <div class= "figcenter">
-{% graphviz %}
-digraph{
-     node [ shape=record, fontsize=12];
-     rankdir=LR;
-     variable [
-
-        label="var|Erick|<ad> 120";
-     ];
-
-     pointer [
-     label="<pt> pointer"
-     ];
-
-     pointer:pt -> variable:ad [label="Point to", color=orange
-     arrowhead=open penwidth=2 ]
-
-         
-}
-{% endgraphviz %}
+<img src="{{ site.url }}{{ site.baseurl }}/assets/pointers/pointer_erick_2.png">
 </div>
 
 
@@ -243,56 +170,12 @@ int main(int argc, char *argv[])
 
 
 <div class= "figleft">
-{% graphviz %}
-digraph{
-     node [ shape=record, fontsize=12];
-     rankdir=LR;
-     a [
-
-        label="a|13|<ada> 110";
-     ];
-
-     b [
-
-        label="b|15|<adb> 150";
-     ];
-     pointer [
-     label="<pt> pointer"
-     ];
-
-     pointer:pt -> a:ada [label="Point to", color=orange
-     arrowhead=open penwidth=2 ]
-
-         
-}
-{% endgraphviz %}
+<img src="{{ site.url }}{{ site.baseurl }}/assets/pointers/change_point_left.png">
 </div>
 
 
 <div class= "figcenter">
-{% graphviz %}
-digraph{
-     node [ shape=record, fontsize=12];
-     rankdir=LR;
-     a [
-
-        label="a|13|<ada> 110";
-     ];
-
-     b [
-
-        label="b|15|<adb> 150";
-     ];
-     pointer [
-     label="<pt> pointer"
-     ];
-
-     pointer:pt -> b:adb [label="Point to", color=orange
-     arrowhead=open penwidth=2 ]
-
-         
-}
-{% endgraphviz %}
+<img src="{{ site.url }}{{ site.baseurl }}/assets/pointers/change_point_right.png">
 </div>
 
 **Points à retenir**
@@ -410,30 +293,8 @@ comme le montre la figure suivante:
 
 
 <div class="figcenter">
-{% graphviz %}
-digraph {
-    node [shape=plaintext, fontcolor=red, fontsize=18];
-    "Pointers:" -> "Values:" -> "Indices:" [color=white];
-
-    node [shape=record, fontcolor=black, fontsize=14, width=4.75, fixedsize=true];
-    pointers [label="<f0> A | <f1> A+1 | <f2> A+2 | <f3> A+3 | <f4> A+4 | <f5> A+5", color=white];
-    values [label="<f0> A[0] | <f1> A[1] | <f2> A[2] | <f3> A[3] | <f4> A[4] | <f5> A[5]", color=blue, fillcolor=lightblue, style=filled];
-    indices [label="0 | 1 | 2 | 3| 4 | 5", color=white];
-
-    { rank=same; "Pointers:"; pointers }
-    { rank=same; "Values:"; values }
-    { rank=same; "Indices:"; indices }
-
-    edge [color=orange];
-    pointers:f0 -> values:f0;
-    pointers:f1 -> values:f1;
-    pointers:f2 -> values:f2;
-    pointers:f3 -> values:f3;
-    pointers:f4 -> values:f4;
-    pointers:f5 -> values:f5;
-}
-
-{% endgraphviz %}
+pointer array
+<img src="{{ site.url }}{{ site.baseurl }}/assets/pointers/pointer_array.png">
 
 <div class="figcaption">
 Relation entre Tableau statique et pointeurs.

@@ -1,0 +1,13 @@
+
+graph{
+     node [ fontname="Handlee", shape=record, fontsize=12];
+     rankdir="LR";
+     
+     subgraph cluster_frontend {
+         ranksep=0;
+    label="Variable";
+    value ;
+    Address [fillcolor = forestGreen, style=filled, background="transparent"];
+  }
+         
+}

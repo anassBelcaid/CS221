@@ -1,0 +1,14 @@
+digraph {
+    ranksep =0;
+    node [shape=plaintext, fontcolor=red, fontsize=18];
+    "Values:" -> "Index:" [color=white];
+
+    node [shape=record, fontcolor=black, fontsize=14, width=4.75, fixedsize=true];
+    values [label="<f0> A[0] | <f1> A[1] | <f2> A[2] | <f3> A[3] | <f4> A[4] | <f5> A[5]", color=blue, fillcolor=lightblue, style=filled];
+    indices [label="0 | 1 | 2 | 3| 4 | 5",color="white"];
+
+    { rank=same; "Values:"; values }
+    { rank=same; "Index:"; indices }
+
+    edge [color=blue];
+}
