@@ -67,3 +67,7 @@ kramdown:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+#
+
+plugins:
+    - jekyll-diagrams
