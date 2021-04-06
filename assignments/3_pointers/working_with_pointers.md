@@ -19,6 +19,10 @@ permalink : /asspointers/
     - [Largest Number](#largestNumber)
     - [Plus One](#PlusOne)
 
+3. [Matrices](#matrices)
+    - [Pascal Matrix](#pascal)
+    - [Spiral](#spiral)
+
 ## [Grasping](#grasping)
 <a name='grasping'></a>
 
@@ -145,6 +149,10 @@ nécessite la bibliothèque `google test`.
 
 En cas où vous n'arrivez pas à l'exécuter, enlever lest fonctions `test`, et
 remplacez les par vos propre tests.
+
+
+> Vous devez télécharer le code de départ qui est dans <a href="{{ site.url }}{{ site.baseurl }}/assignments/3_pointers/homwork_pointers.zip"> Pointer_homework.zip </a>
+
 
 
 
@@ -286,3 +294,91 @@ Output: [1]
 
 
 Vous trouvez le code de départ dans `add_one.cpp`.
+
+## [Matrices](#matrices)
+<a name='matrices'> </a>
+
+### [Pascal Matrix](#pascal)
+<a name='pascal'> </a>
+
+Ecrire une fonction `generate(int numRows)` qui reçoit un nombre de lignes
+`numRows` et renvoie une représentation du **Triangle de Pascale**.
+
+Dans ce triangle, chaque élément est calculé en se basant les la ligne
+précédente comme ceci:
+
+<div class="figcenter fighightlight">
+<img src="{{ site.url }}{{ site.baseurl }}/assets/PascalTriangleAnimated2.gif">
+<div class="figcaption">
+Illustration du calcul du triangle de Pascal.
+</div>
+</div>
+
+Vous avez le chois soit de réprésenter ce triangle en utilisant des vecteur
+**stl** soit d'utiliser les **tableaux** avec la **gestion de la mémoire**.
+
+
+**Exemple 1**
+
+```input
+Input: numRows = 5
+Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+```
+
+
+**Exemple 2**:
+
+```
+Input: numRows = 3
+Output: [[1],[1,1],[1,2,1]]
+```
+
+Vous trouvere le code avec les tests dans `pascal_matrix.cpp`.
+
+
+
+
+
+
+## [Spiral](#spiral)
+<a name='spiral'>
+
+Etant donné une matrice `m x n`, on cherche à écrire une fonction qui renvoie
+tous ces éléments dans un ordre `spiral`.
+
+
+```cpp
+vector<int> spiralOrder(vector<vector<int>> & M)
+```
+
+**Exemple 1**
+
+
+<div class="figcenter fighightlight">
+<img src="{{ site.url }}{{ site.baseurl }}/assets/spiral1.jpg">
+<div class="figcaption">
+Parcours Spiral d'une matrice
+</div>
+</div>
+
+
+```
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,3,6,9,8,7,4,5]
+```
+
+**Exemple 2**
+
+
+<div class="figcenter fighightlight">
+<img src="{{ site.url }}{{ site.baseurl }}/assets/spiral2.jpg">
+<div class="figcaption">
+Parcours Spiral d'une matrice
+</div>
+</div>
+
+
+```
+Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+```
