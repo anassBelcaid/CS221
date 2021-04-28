@@ -31,7 +31,11 @@ width="400" height="300">
     - [Binary operators](#binary)
     
 4. [Templats](#templates)
-<a name='templates'></a>
+    - [Templates functions](#tmpFun)
+    - [Templates classes](#tempClass)
+    
+    
+
 
 
    
@@ -699,3 +703,151 @@ l'appel de l'opérateur comme illustré dans la figure:
 
 ##  [Templates](#templates)
 <a name='templates'></a>
+
+les **[templates](https://www.cplusplus.com/doc/oldtutorial/templates/)** permettent d'écrire valide pour **différents** types. Cela
+permet d'éviter de réecrire la même fonction pour chaque type.
+
+> L'avantage majeur des templates est de permettre d'écrire un code qui est a
+> valide pour différents type. Etant donné que le type respect les opérateur
+> introduits dans ces fonctions.
+
+### [Templates functions](#tmpFun)
+<a name='tmpFun'></a>
+
+Prenons l'exemple simple d'une fonction  `add` qui calcule simplement la somme
+de ces deux arguments.
+
+
+```cpp
+int add(int a, int b) {
+    return a + b;}
+```
+
+
+Supposons qu'on possède la fonction main suivante:
+
+```cpp
+int main()
+{
+    auto a = 2;
+    auto b = 4;
+
+    cout<< add(a, b) << endl;
+    return 0;
+}
+```
+Le programme se compile et va afficher la valeur de la somme $$5$$. 
+
+>> Supposons maintenant qu'on possède d'autre valeurs mais qui sont des doubles.
+
+```cpp
+auto c  = 4.2;
+auto d  = 3.2;
+
+cout << add(c, d) << endl;
+```
+
+> Selon les règle de conversion **implicite** ce programme va se compiler et il
+> va afficher la valeur **7**.
+
+Mais supposons qu'on veut réaliser la somme **réelle** qui garde la partie
+flottante. On serait ramener à écrire une **deuxième** fonction réservée juste
+pour les **double**.
+
+```cpp
+double add( double a, double b)
+{
+    return a + b;
+}
+```
+
+Imaginons maintenant que veut réaliser cette opération, mais entre des
+`string`!. On doit aussi développer une troisième fonction qui **répète** le
+même code.
+
+
+Pour éviter ces répétitions, on peut écrire `une seule fonction` template qui peut
+générer une version compilé de tous les types. La syntaxe des template est la
+suivante:
+
+
+```cpp
+template < class T >          // T est un type abstrait
+   
+   //Déclarer la fonction normalement en utilisant T comme type
+```
+
+
+Pour une meilleure visibilité, on met la fonction `add` pour `int` et sa version
+**template**.
+
+
+```cpp
+//Version int
+int add(int a, int b)
+{
+    return a + b;
+}
+
+//Version template
+template <class T>
+T add( T a, T b)
+{
+    return a + b;
+}
+```
+
+Avec cette version on peut appeler la même fonction pour tous les types qui
+accepte l'opérateur `+`.
+
+
+```cpp
+int main()
+{
+    cout << add(3, 4) << endl;  //Call pour int
+    cout << add(3.4, 4.5) <<endl;   //Call pour double
+    cout << add(string("EU"), string("MF")) << endl; //string
+
+    vector<int> v1(5, 1);
+    vector<int> v2(5, 2);
+
+    cout << add(v1, v2) << endl // A votre avis?
+}
+
+```
+###  [Templates classes](#tempClass)
+<a name='tempClass'></a>
+
+Similaire aux fonctions, on peut déclarer des `classes templates` qui dépdendent
+d'un (ou plusieurs) types.
+
+La syntaxe reste la même, ou il faut précéder la déclaration par 
+
+```cpp
+template<class T> 
+//Définition de la classe
+```
+
+
+Une classe template qu'on  utilise intensivement  est celle `vector<int>`.
+Supposons qu'on nous demande ( D'ailleurs vous allez programmer ceci dans votre
+homework) de coder cette classe:
+
+
+```cpp
+template <class T>
+class vector
+{
+    public:
+    vector();
+    vector(int size);
+    vector(int size, T value);
+    ~vector();
+    int size()const;
+    T & operator[] (int i)const;
+
+private:
+    T * data_= nullptr;
+    int size_;
+};
+```
