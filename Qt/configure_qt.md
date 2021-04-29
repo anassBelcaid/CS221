@@ -65,6 +65,12 @@ cours.
 > - Library
 
 
+
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl }}/Qt/images/folder_state.PNG">
+</div>
+
+
 ### **3.1) Library**
 
 Allez dans le dossier `Library` et ouvrez le fichier `Library.pro` avec
@@ -79,11 +85,20 @@ Allez dans le dossier `Library` et ouvrez le fichier `Library.pro` avec
 
 Accepter les options de configuration de **QT creator**.
 
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl }}/Qt/images/configure_project.PNG">
+</div>
+
 Vous devez avoir une projet qui contient les sources de la bibliothèque
 Stanford.
 
 
 - Compiler ce projet en cliquant sur la flèche **verte** pour exécuter.
+
+
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl }}/Qt/images/configure_and_run.PNG">
+</div>
 
 
 ### **4.1) Sample project**
@@ -98,5 +113,18 @@ Afin de tester votre installation, rendez vous dans le deuxième dossier
 
 > Vous allez voir un terminal **Qt** qui demande votre nom,
 
+
+
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl }}/Qt/images/Welcome_console.PNG"
+  widht="400" height="300">
+</div>
+
 3. Quand vous terminer, la saisie vous devez voir une image comme:
+
+
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl }}/Qt/images/stanford_message.PNG"
+  widht="200" height="200">
+</div>
 
