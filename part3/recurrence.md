@@ -216,7 +216,7 @@ $$
 On connait déjà comment implémenter une fonction `iterative` de cette fonction,
 cependant dans cet exercice, on veut concevoir une fonction `recursive`.
 
-On va proposer **trois** versions erronés afin que vous puisez identifier les
+On va proposer **deux** versions erronés afin que vous puisez identifier les
 points manquants soulevées dans la section précédente. 
 
 ```cpp
@@ -227,10 +227,138 @@ int fact(int n)
         return 1;
     else
         return n * n-1 * fact(n-2);
-        }
+}
 ```
 
-Telecharger le projet <a href="{{ site.url }}{{site.baseurl}}part3/factorial.zip"> factorial.zip </a>
+Télécharger le projet <a href="{{ site.url }}{{ site.baseurl }}/part3/factorial.zip"> factorial.zip </a> 
+et ajouter cette implémentation pour voir le résultat.
+
+Une deuxieme version, qui est aussi erronee est:
+
+
+```cpp
+int main( int n)
+{
+    // Base case
+    if ( n== 0 || n == 1 )
+        return 1;
+
+    // Recurrence
+    else
+        return fact(n+1) / n;
+}
+```
+
+> Quel est le problème de cette implémentation?
+
+Finalement la version correcte est:
+
+
+```cpp
+int main( int n)
+{
+    // Base case
+    if ( n== 0 || n == 1 )
+        return 1;
+
+    // Recurrence
+    else
+        return n * fact(n-1);
+}
+```
+
+> Une question qu'on doit aussi mentionner, est comment calculer la
+**complexité** de cette fonction avec cet appel récursif?
+
+
+### [Power of X](#power)
+<a name='power'></a>
+
+Un autre exemple classique de récursivité est le calcul de la **puissance** d'un
+nombre $$x$$ a la puissance $$n$$.
+
+```cpp
+float power(float x, int n)
+{
+    //fonction recursive pour cacluler x^n
+}
+```
+
+Avant de lire la suite, essayer de proposer une implémentation vous même, en
+répondant aux questions suivantes.
+
+> Voici le code de projet <a href="{{ site.url }}{{ site.baseurl }}/part3/power.zip"> power.zip </a>
+  avec des simples tests.
+
+1. Quel est le `cas de base`?
+2. Quelle est la `relation de recurrence`?
+3. Quelle est la `complexité` de votre implémentation?
+
+
+**Première tentative**
+
+On va se baser sur la relation suivante:
+
+$$
+
+x^n = \left\{ \begin{array}{ll}
+1 & \text{si} & n=1\\[2pt]
+x \times x^{n-1} & \text{sinon}
+\end{array}\right.
+$$
+
+```cpp
+float power(float x, int n)
+{
+    //base case
+    if ( n == 0)
+        return 1;
+    
+    //recurrence relation
+    return x * power(x, n-1);
+}
+```
+
+Si on analyse de la complexité de cette fonction donne:
+
+$$
+
+C(n) = \underbrace{\mathcal{O}(1) + \mathcal{O}(1)  + \ldots + \mathcal{O}(1)}_{n \text{ fois}} = \mathcal{O}(n)
+$$
+
+**Deuxième tentative** 
+
+Une meilleure approche consiste a utiliser la relation mathématique suivante:
+
+
+$$
+
+x^n = \left\{ \begin{array}{ll}
+1 & \text{si} & n=1\\[2pt]
+x^{\frac{n}{2}}\;.\; x^{\frac{n}{2}} & \text{si} & \text{n est pair}\\
+x\;.\;x^{\frac{n}{2}}\;.\; x^{\frac{n}{2}} & \text{si} & \text{n est impair}\\
+\end{array}\right.
+$$
+
+Ce qui donne la fonction suivante:
+
+```cpp
+float power( float x, int n)
+{
+    //base case
+    if ( n == 0 )
+        return 1;
+
+    // recursive call
+    auto val = power(x, n/2);
+    return ( n % 2 == 0) ? val * val : x * val * val;
+
+}
+```
+
+> La complexité de cette implémentation est $$\mathcal{O}(\log n)$$!!!. Preuve
+(Check the master theorem)
+
 
 
 ## [Memoization](#memoization)
