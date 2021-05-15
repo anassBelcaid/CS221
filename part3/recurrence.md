@@ -25,6 +25,8 @@ width="400" height="300">
   - [Greated Common Divisor](#pgcd)
 4. [Memoization](#memoization)
 5. [Complexity Analysis](#complexity)
+6. [Tower Hanoi code](#hanoiCode)
+
 
 
 
@@ -477,7 +479,132 @@ on verifie tout d'abord, si on l'as pas calcule auparavant.
 **HashMap** par : `cache[n] = val`.
 
 
-
-
 ## [Complexity Analysis](#complexity)
 <a name='complexity'></a>
+
+La derniere section de cette lecture introduit un theoreme important pour le
+calcul de la complexité d'une fonction recursive.
+
+> Le  [Master theorem](https://fr.wikipedia.org/wiki/Master_theorem) est un
+theoreme permet d'obtenir la complexité d'une fonction recursive selon trois
+parametres (dans sa forme simplifiee).
+
+
+On note $$T(n)$$ le nombre d'operations pour resoudr un problème recursif de
+taille $$n$$. Generalement, on peut ecrire $$T(n)$$  selon la forme suivante:
+
+
+$$
+ T(n) = a\;T\big(\dfrac{n}{b} \big) + \mathcal{O}(n^d)
+$$
+
+Dans ce cas on possede **trois** cas:
+
+1. Si $$ d < \log_b a$$ alors 
+
+$$
+T(n) = \mathcal{O}\big(n^{\log_ba}\big)
+$$
+
+2. Si $$ d = \log_b a$$ alors
+
+$$
+T(n) = \mathcal{O}\big(n^d \log n\big)
+$$
+
+3. Si $$ d > \log_b a$$ alors
+
+$$
+T(n) = \mathcal{O}\big(n^d \big)
+$$
+
+Afin de comprendre l'application de ce theoreme, appliquons le pour calculer la
+complexite de la deuxieme verions proposee pour calculer la puissance $$x^n$$.
+
+```cpp
+float power( float x, int n)
+{
+    //base case
+    if ( n == 0 )
+        return 1;
+
+    // recursive call
+    auto val = power(x, n/2);
+    return ( n % 2 == 0) ? val * val : x * val * val;
+
+}
+```
+
+Ici dans appel, on reduit la taille du probleme par deux. On obtient la relation
+de recurrence suivante:
+
+
+$$
+T(n)  = T\big(\frac{n}{2}\big) + \mathcal{O}(1)
+$$
+
+Ainsi les valeurs du theoreme sont:
+
+- $$ a = 1$$
+
+- $$ b = 2$$
+- $$ d = 0 $$
+
+Pour determiner le cas on compare $$d$$ et $$\log_b (a)$$. On as 
+
+$$
+ d = 0
+$$
+
+et 
+
+$$
+\log_b(a) = \log_2(1)  = 0
+$$
+
+Ainsi, on est dans  le deuxime cas. La complexité est donne par
+
+
+$$
+ T(n) = \mathcal{O}(n^d\log n) = \mathcal{O}(n^0 \log n) = \mathcal{O}(\log n)
+$$
+
+
+## [Tower Hanoi code](#hanoiCode)
+<a name='hanoiCode'></a>
+
+Vous pouvez maintenant telecharcher le project <a href="{{ site.url }}{{ site.baseurl }}/part3/Towers-Of-Hanoi.zip"> Hanoi Towers.zip </a>.
+Essayer d'implementer vous meme la fonction qui realise les deplacement en suivant l'approche recursive suivante:
+
+
+<div class="fig figcenter ">
+  <img src="{{ site.url }}{{ site.baseurl }}/part3/images/hanoi18.png"
+  height="200">
+  <div class="figcaption">
+   Configuration Initiale
+  </div>
+</div>
+
+<div class="fig figcenter ">
+  <img src="{{ site.url }}{{ site.baseurl }}/part3/images/hanoi19.png"
+  height="200">
+  <div class="figcaption">
+   Deplacer les n-1 disques en la tige temporaire
+  </div>
+</div>
+
+<div class="fig figcenter ">
+  <img src="{{ site.url }}{{ site.baseurl }}/part3/images/hanoi20.png"
+  height="200">
+  <div class="figcaption">
+   Deplacer le plus grand disque dans sa position finale
+  </div>
+</div>
+
+<div class="fig figcenter ">
+  <img src="{{ site.url }}{{ site.baseurl }}/part3/images/hanoi21.png"
+  height="200">
+  <div class="figcaption">
+   Deplacer le plus grand disque dans sa position finale
+  </div>
+</div>
