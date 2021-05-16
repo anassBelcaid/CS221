@@ -1,6 +1,6 @@
 ---
 layout : page
-title  :  
+title  :  Homework on Fractals
 date   :  2021/05/18  
 permalink : /fractals/
 ---
@@ -164,3 +164,5 @@ premiers** lignes et le reste?
 
 ## [3. Fractals](#fractals)
 <a name='fractals'></a>
+
+
