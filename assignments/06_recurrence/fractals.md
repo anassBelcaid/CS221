@@ -17,7 +17,6 @@ permalink : /fractals/
     - [IsPalindrome](#palindrome)
     - [Combin](#combin)
     - [CountBy](#count)
-    <a name='count'></a>
     
     
 2. [Number of Partitions](#partitions)
@@ -164,5 +163,58 @@ premiers** lignes et le reste?
 
 ## [3. Fractals](#fractals)
 <a name='fractals'></a>
+
+Dans cet exercice, on doit dessiner le [Triangle de
+Sierpensky](https://fr.wikipedia.org/wiki/Triangle_de_Sierpi%C5%84ski) en
+utilisant les objets graphiques de la bibliothèque de Stanford. 
+
+Comme le montre la figure, un triangle de **Sierpensky** est tout simplement un
+triangle isocèle rempli. Un triangle de **Sierpensky** est la superposition de
+`trois` triangles de Sierpensky d'ordre $$1$$.  
+
+
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl }}/part3/images/768px-Sierpinski_triangle_evolution.png">
+  <div class="figcaption">
+   Illustration des triangles de Sierpensky de différent ordres.
+  </div>
+</div>
+
+
+Dans le projet <a href="{{ site.url }}{{ site.baseurl
+}}/assignments/06_recurrence/Sierpensky.zip">Sierpensky.zip </a>, vous trouverez
+le code départ qui demande a l'utilisateur un entier `order` et qui doit afficher
+le triangle de Sierpensky de set ordre.
+
+
+Votre role est de remplir la fonction:
+
+```cpp
+void Sierpensky( GWindow &app, float x, float y , float width, int order)
+```
+
+Où:
+
+- `app`: est la fenêtre ou on doit afficher le triangle.
+- `x, y`: représente les **coordonnes** du premier point du triangle 
+- `width`: est la **longueur** de chaque arrête.
+- `order`: est l'ordre du triangle.
+
+
+Afin de vous aider, le code fournit une fonction prête pour tracer un **triangle
+rempli**:
+
+```cpp
+void draw_triangle(GWindow &app, float x, float y, float width)
+```
+
+Où:
+
+- `app`: est la fenêtre ou on doit afficher le triangle.
+- `x, y`: représente les **coordonnes** du premier point du triangle 
+- `width`: est la **longueur** de chaque arrête.
+
+
+
 
 
