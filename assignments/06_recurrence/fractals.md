@@ -123,9 +123,44 @@ dans la lecture.
 
 
 
-## [2. Number of Partitions](#partitions)
+## [2. Number of Partitions (**)](#partitions)
 <a name='partitions'></a>
 
+On définit `nombre de partitions` d'un entier positif $$n$$ en utilisant au max
+ $$m$$ comme le nombre d'**alternatives** pour décomposer $$n$$ en une somme de
+ nombres inférieur a $$m$$ en séquence **croissante**.
+
+Prenons par exemple l'entier $$n=6$$ et la partie max $$m=4$$. Alors on peut
+trouver $$\mathbf{9}$$ façons pour décomposer $$n$$. Voici la liste de ces
+décomposition:
+
+
+```shell
+1. 6 = 2 + 4
+2. 6 = 1 + 1 + 4
+3. 6 = 3 + 3
+4. 6 = 1 + 2 + 3
+5. 6 = 1 + 1 + 1 + 3
+6. 6 = 2 + 2 + 2
+7. 6 = 1 + 1 + 2 + 2
+8. 6 = 1 + 1 + 1 + 1 + 2
+9. 6 = 1 + 1 + 1 + 1 + 1 + 1
+```
+
+Votre tâche (si vous l'acceptez) consiste a écrire une fonction
+`count_partitions(n, n)` qui renvoie le nombre de partitions comme expliqué.
+
+
+Dans le projet <a href="{{ site.url }}{{ site.baseurl }}/part3/partitions.zip">
+partitions.zip </a>, vous trouver le code de départ avec des tests unitaires
+qui vous de devez passer. 
+
+
+> Indice 1: Essayez de proposer une récurrence sur $$m$$ qui représente le
+nombre maximal pour un terme dans la somme.
+
+> Indice 2: Dans l'exemple précédant, quel est la différence entre les **deux
+premiers** lignes et le reste? 
 
 ## [3. Fractals](#fractals)
 <a name='fractals'></a>
