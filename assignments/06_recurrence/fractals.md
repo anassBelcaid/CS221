@@ -15,13 +15,16 @@ permalink : /fractals/
 
 1. [Step By Step ](#step)
     - [IsPalindrome](#palindrome)
-    - [Combin](#combin)
     - [CountBy](#count)
+    - [Combin](#combin)
     
     
 2. [Number of Partitions](#partitions)
-
 3. [Fractals](#fractals)
+ - [Sierpensky Triangle](#sierp)
+ - [Sierpensky Carpet](#carpet)
+ 
+ 
 
 
  
@@ -164,6 +167,8 @@ premiers** lignes et le reste?
 ## [3. Fractals](#fractals)
 <a name='fractals'></a>
 
+### [Sierpensky](#sierp)
+<a name='sierp'></a>
 Dans cet exercice, on doit dessiner le [Triangle de
 Sierpensky](https://fr.wikipedia.org/wiki/Triangle_de_Sierpi%C5%84ski) en
 utilisant les objets graphiques de la bibliothèque de Stanford. 
@@ -217,4 +222,56 @@ Où:
 
 
 
+### [Sierpensky Carpet](#carpet)
+<a name='carpet'></a>
+
+Le [**tapis de Sierpiński**](https://fr.wikipedia.org/wiki/Tapis_de_Sierpi%C5%84ski) (1916), du nom de Wacław Sierpiński, est une fractale obtenue à partir d'un carré. Le tapis se fabrique en découpant le carré en neuf carrés égaux avec une grille de trois par trois, et en supprimant la pièce centrale, et en appliquant cette procédure indéfiniment aux huit carrés restants.
+
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl}}/assignments/06_recurrence/animated_carpet.gif">
+  <div class="figcaption">
+   Construction progressive du tapis de Sierpensky.
+  </div>
+</div>
+
+Dans le projet <a href="{{ site.url }}{{site.baseurl}}/assignments/06_recurrence/carpet.zip"> carpet.zip </a>, vous trouvez le code de la fonction 
+
+```cpp
+void carpet(GWindow &win, int x, int y, int width , int order)
+```
+
+
+
+ou:
+
+- `win`: est la fenêtre d'affichage.
+- `x, y`: la position de carpet dans la fenêtre.
+- `width`: est la longueur de carpet.
+- `order`: est l'ordre du carpet.
+
+
+Afin de tracer un rectangle dans une fenêtre vous utiliser le code suivant:
+
+```cpp
+   // ajouter un rectangle dans le point (x, y) de longueur [width]
+   GRect * rect = new GRect(x, y, width, width);
+
+   //remplir le rectangle
+   rect->setFilled(true);
+
+   //ajouter le triangle a la fenetre
+   win.add(rect);
+```
+
+
+Votre tache est de produire le tapis d'ordre $$5$$, comme le montre le figure
+suivante:
+
+
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl}}/assignments/06_recurrence/carpet_5.png">
+  <div class="figcaption">
+  Bon courage!!!
+  </div>
+</div>
 
