@@ -25,7 +25,6 @@ permalink : /sorting/
 4. [Insertion Sort](#insertionSort)
     - [insertion](#insertion)
     - [Invariant and Complexity](#compSelection)
-    <a name='compSelection'></a>
     
 5. [Merge Sort](#mergeSort)
     - [Merging](#merging)
@@ -284,13 +283,120 @@ $$
 
 ##  [Insertion Sort](#insertionSort)
 <a name='insertionSort'></a>
+Le tri d'`Insertion` est le tri qu'on réalise naturellement comme humains.
+Pensez a votre jeu de carte. Comment vous faites pour orgraniser et trier votre
+**main**.
+
+
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl }}/part3/images/insertion_hand.png"
+  width = "400" height="300">
+</div>
+
 
 
 ###  [insertion](#insertion)
 <a name='insertion'></a>
+ 
+Pour ce tri, l'opération de base et celle d'`Insertion` qui suppose qu'on
+dispose d'un tableau deja **trié** et on cherche à **inserer** une nouvelle
+valeur tout en gardent la propriété de tri. 
+
+Dans l'image suivante on explique cette operation pour un tableau simple de
+taille $$6$$.
+
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl }}/part3/images/insertion_process.png"
+  width  = "900" height="300">
+  <div class="figcaption">
+  Illustration du processus de tri par insertion. Les valeurs en gris montre le
+  tableau trié (main). La valeur en noir est la valeur a insérer.
+  </div>
+</div>
+
+
+Ainis la premiere fonction a coder est:
+
+
+```cpp
+
+void insertion( int * begin, int *end , int value)
+{
+  // insert the value [value] in the array
+  // stored between [begin] and [end]
+
+  auto curr = end;
+
+  // search place for value
+  while (curr > begin && *(curr-1) > value) {
+    // save next place
+    *curr = *(curr-1);
+
+    curr--;
+  }
+  *curr = value;
+}
+```
+
+
+Le tri par insetion répète cette insertion sur chaque nouvelle valeur du tableau
+comme illustrée dans la figure suivante:
+
+
+
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl }}/part3/images/Insertion-sort-example-300px.gif">
+  <div class="figcaption">
+   Animation du tri d'insertion.
+  </div>
+</div>
+```cpp
+vod insertion_sort(int *begin, int *end)
+{
+    auto curr = begin + 1;
+
+    while( curr < end)
+    {
+        insertion(begin, curr, *curr);
+        curr ++;
+
+    }
+}
+```
+
+
 
 ### [Invariant and Complexity](#compSelection)
 <a name='compSelection'></a>
+
+Comme le montre la figure après chaque itération de ce tri, on possède un main (
+tableau) qui est trie. Cependant est ce que chaque carte est a sa place finale?
+La réponse est **Non**.
+
+
+**Invariant**:
+
+> Après $$k$$ insertions , les $$k$$ premiers éléments du tableau sont triés.
+
+
+**Corollaire**:
+
+> Après $$\;n-1$$ itérations d'insertions, le tableau sera trie.
+
+
+Voici un exercice pour tester cette propriété d'**invariance** pour ce tri. <img src="{{ site.url }}{{ site.baseurl }}/assets/logo_step.png" width="20" height="20"><a href="https://www.codestepbystep.com/problem/view/cpp/sorting/insertionSort1"> Insertion Mysteyry </a>
+
+
+
+
+Même si ce tri propose des améliorations par rapport aux tris précédents, il
+garde une complexité quadratique.
+
+$$ 
+T(N) = \mathcal{O}(N^2)
+$$
+
+
 
 ## [Merge Sort](#mergeSort)
 <a name='mergeSort'></a>
