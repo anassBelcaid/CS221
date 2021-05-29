@@ -165,18 +165,122 @@ $$B(n) = n$$. Ainsi on obtient que:
 
 
 $$ 
-T(n) = n + (n-1) + \ldots + 2 \leq \dfrac{n(n+1)}{2} =  \mathcal{O}(n^2)
+T(n) = n + (n-1) + \ldots + 2 \leq \dfrac{n(n+1)}{2} =  \mathcal{O}(n)
 $$
 
 
 ##  [Selection Sort](#selectionSort)
 <a name='selectionSort'></a>
+Le tri de **Sélection** `Selection sort` un tri qui consiste, a chaque itération,
+d'identifier l'indice de la   **plus petite** valeur et la permuter avec celle
+qui occupe sa place (*indice 0*).
+
+On doit répéter ce mécanisme jusqu'à ce que toutes les valeurs occupent leurs
+places pour le tri. Un illustration de ce mécanisme est présentée dans la figure
+suivante:
+
+
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl}}/part3/images/Selection-Sort-Animation.gif">
+  <div class="figcaption">
+  Illustration  du mécanisme de tri par sélection. Les valeurs <b>jaunes </b>
+  sont déjà tries. Les valeurs rouges indiquent l'emplacement de valeur minimal et les valeurs bleues sont celle considères dans la boucle.
+
+  </div>
+</div>
+
+
 
 ###  [Selection](#selection)
 <a name='selection'></a>
+Afin d'implémenter ce tri, nous commençons par l'opération de base `Selection`
+qui doit trouver l'indice de l'élément minimal et permuter ce dernier avec la
+première valeur.
+
+
+
+```cpp
+void selection(int * begin, int * end)
+{
+    /* Perform a single selection step between 
+     * the start memroy [begin] and the end [end]
+     */
+    auto curr = begin;     // current pointer ( blue in animation)
+    auto min  = begin;     // minimal value   ( Red in animation)
+
+    while (curr < end) {
+      // update relation
+      if (*curr < *min)
+        min = curr;
+
+      curr++;
+    }
+
+    //Swap if necessary
+    if ( min != begin)
+        swap(*min, *begin);
+}
+```
+
+
+Finalement pour trier tous les elements, on doit repeter cette operation $$ n -
+1$$.
+
+
+```cpp
+void selection_sort( int * begin, int *end)
+{
+    // Performs a selection sort between begin and end 
+    //
+    while ( begin < end)
+    {
+        selection(begin, end);
+        begin ++;
+    }
+}
+
+```
+
 
 ### [Invariant and complexity](#selecInvar)
 <a name='selecInvar'></a>
+
+Similaire au tri à bulles, on doit presenter l'invariant de boucle pour le tri
+de selection. Selon la construction on peut voir clairement que:
+
+**Invariant de boucle**:
+
+> Apres  $$k$$ selections, on est sur que les $$k$$ premières clés sont
+**triés** et aussi ils **sont à leurs places**!
+
+
+**Corollaire**:
+
+> Apres $$n-1$$ iterations de selectins, le tableau sera **trié**.
+
+
+- Afin de mieux comprendre cette notion d'invariant de boucle, Essayer de
+resoudre l'exercice suivant  <img src="{{ site.url }}{{ site.baseurl }}/assets/logo_step.png" width="20" height="20"><a href="https://www.codestepbystep.com/problem/view/cpp/sorting/selectionSort1"> Selection Sort Mystery </a>
+
+
+Pour l'analyse de complexite, on evalue tout d'abord la complexite d'une
+operation de selection sur un tableau de taille $$N$$. On note ainsi $$S(N)$$
+pour completer cette operation. 
+
+Pour calculer la cle la plus petite, on doit parcourir tout le tableau. Puis on
+doit realiser une operation de permuation. Ainsi on a
+
+$$ 
+S(n)  = \mathcal{O}(N)
+$$
+
+Finalement pour la complexite de tout le tri de selection, on repete $$n-1$$ qui
+sont de taille $$n$$ puis $$n-1$$ jusqu'a $$2$$.
+
+$$
+T(N) = N + N-1 + N-2 + \ldots + 2 \leq \dfrac{N(N+1)}{2}  = \mathcal{O}(N^2)
+$$
+
 
 ##  [Insertion Sort](#insertionSort)
 <a name='insertionSort'></a>
