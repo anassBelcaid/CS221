@@ -30,11 +30,6 @@ permalink : /sorting/
     - [Merging](#merging)
     - [Complexity](#mergeComplexity)
 
-6.  [Quick Sort](#quicksort)
-    - [Partition](#partition)
-    - [Pivot Choice](#pivot)
-    - [Amortized complexity](#amocomplexity)
-    <a name='amocomplexity'></a>
     
     
     
@@ -401,21 +396,121 @@ $$
 ## [Merge Sort](#mergeSort)
 <a name='mergeSort'></a>
 
+Le **tri par fusion** `merge sort` est votre premier algorithme de tri avance
+qui utilise les paradigme de `divide and conquer`. Ce paradigme utilise la
+**récursivité** afin de décomposer le problème de tri en sous problèmes
+(`divide`) puis regroupe la solution de ces problèmes (`conquer`).
+
+
+- Le principe de tri consiste a chaque itération de décomposer le tableau en
+**deux**. 
+
+- On tri chaque sous tableau **séparément**.
+- Puis on **fusionne** les deux tableaux triés.
+
+
+Le concept de ce tri est illustre dans la figure suivante:
+
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl}}/part3/images/merge_sort_process.png" width="700" height="400">
+  <div class="figcaption">
+  Illustration du processus de tri par fusion. Le principe consiste a décomposer
+  à chaque fois le tableau en deux puis trier chaque tableau  à part. Une fois on
+termine, on fusionne les deux parties tout en gardant le tri.
+  </div>
+</div>
+
 ###  [Merging](#merging)
 <a name='merging'></a>
+
+
+Pour implémenter ce tri, on doit tout d'abord commencer par l'opération de base
+qui `fusionne` deux tableau tries en un seul tableau tout en gardant le tri.
+Cette opération est illustrée dans la figure suivante:
+
+
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl }}/part3/images/merging.png">
+  <div class="figcaption">
+  Principe de fusionner deux tableaux en un seul tableau trié. 
+  </div>
+</div>
+
+
+
+> Remarquer que la fusion est réalisée dans un **autre espace mémoire additionnel**.
+
+```cpp
+
+vecI merge(vecI & L, vecI & R)
+{
+    // function to merge two sorted arrays [L] and [R]
+    
+    // result vector
+    vecI M(L.size() + R.size());
+
+    int i = 0;            //indice i de Left
+    int j = 0;            //indice j de Right
+    int k = 0;            // indice de fusion
+
+    // boucle deux elements existents
+    while( i < L.size() && j < R.size())
+    {
+        //comparaison pour verifier la petite valeur
+        if ( L[i] < R[j])
+            M[k++] = L[i++];
+        else
+            M[k++] = R[j++];
+    }
+
+    //terminer les tableaux
+    while(i < L.size())
+        M[k++] = L[i++];
+
+    while( j < R.size())
+        M[k++] = R[j++];
+
+    return M;
+}
+```
+
+Une animation de ce tri en action est présentée dans la figure suivante:
+
+
+<div class="fig figcenter fighighlight">
+  <img src="{{site.url }}{{ site.baseurl }}/part3/images/Merge-sort-example-300px.gif">
+  <div class="figcaption">
+  Animation de tri par fusion.
+  </div>
+</div>
+
+
 
 ### [Complexity](#mergeComplexity)
 <a name='mergeComplexity'></a>
 
-##  [Quick Sort](#quicksort)
-<a name='quicksort'></a>
+Pour l'analyse de complexité, on doit calculer les Coefficients de la formule de
+récurrence.
 
-### [Partition](#partition)
-<a name='partition'></a>
+- Chaque problème est décompose en **deux** sous problèmes. $$ a = 2$$.
+- La taille de chaque sous problème est $$\dfrac{n}{2}$$ donc $$ b = 2$$.
+- Finalement le coût de décomposition est l'algorithme de fusion, qui est
+**linéaire**. Ainsi on a $$ d = 1$$.
 
-#### [Pivot Choice](#pivot)
-<a name='pivot'></a>
+Aini on obtient que:
+
+$$ 
+T(n) = 2 T(\dfrac{n}{2}) + \mathcal{O}(n)
+$$
 
 
-### [Amortized complexity](#amocomplexity)
-<a name='amocomplexity'></a>
+Si on applique le théorème de `master` on trouve que:
+
+$$
+T(n) = \mathcal{O}(n \log\;n)
+$$
+
+
+> Deja ca constitut une amelioration importante comparee aux trois tries
+precedents.
+
