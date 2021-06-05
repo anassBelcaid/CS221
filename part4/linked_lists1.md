@@ -290,15 +290,16 @@ Il est temps d'**implémenter** la classe `Linked List` avec les operations qu'o
 as présenter.
 
 
-Dans le <a href="{{ site.url }}{{site.baseurl}}"> singly_linked_list.zip</a>,
-vous devez completer la classe `LinkedList` avec les membres suivants:
+Dans le <a href="{{ site.url }}{{site.baseurl}}/part4/singly_linked_lists.zip"> singly_linked_list.zip</a>,
+vous devez compléter la classe `LinkedList` avec les membres suivants:
 
 - `LinkedList` : initialise la liste chainée.
+- `size()` : renvoie le nombre d'éléments dans la liste.
 - `int get(int index)`: renvoie la valeur dans l'indice $$i$$. Si l'indice est
 **invalide**, renvoyer $$-1$$.
 - `void addAtHead(int val)` ajouter le noeud au début de la liste. 
 - `void addAtTail(int val)`: ajouter la valeur **val** a la fin de la liste.
-- `void addAtTail(int index, int val)`: ajouter la valeur **val** a l'indice
+- `void addAtIndex(int index, int val)`: ajouter la valeur **val** a l'indice
 **index**.
 - `void deleteAtIndex(int index)` : **supprime** le noeud dans la position
 **index**.
@@ -308,6 +309,53 @@ vous devez completer la classe `LinkedList` avec les membres suivants:
 ## [Two pointers](#twopointers)
 <a name='twopointers'></a>
 
-
 ### [Detect cycle](#cycle)
 <a name='cycle'></a>
+
+Cette partie est réservée pour une technique des `deux pointeurs` déjà introduite dans le chapitre
+des vecteurs. Afin d'illustrer son avantage dans les listes, essayons de
+résoudre un classique qui est celui de la détection des **cycles** dans une
+liste chainée.
+
+> Etant donne une liste, déterminer si elle contient un **cycle**.
+
+
+Par exemple la liste chainée suivante contient un cycle $$\left(2, 0 , -4\right)$$.
+
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl}}/part4/images/cycle1.png">
+</div>
+
+Voici un autre exemple avec deux noeuds.
+
+<div class="fig figcenter fighighlight">
+  <img src="{{ site.url }}{{ site.baseurl}}/part4/images/cycle2.png">
+</div>
+
+On peut résoudre ce problème en utilisant un `HashMap` qui stocke les adresses
+des noeuds déjà visites.
+
+> Avec la technique des deux pointeurs, on peut achever cet exercice sans un
+espace mémoire additionnel pour stocker ces adresses.
+
+
+Imaginons qu'on possède deux pointeurs qui se déplace dans note liste chainée.
+On va supposer qu'un pointeur `faster` est plus rapide dans `slower`.
+
+
+1. Si la liste ne contient pas de cycle, ca serait comme avoir deux coureurs
+   dans une ligne droite. Dans ce cas, `faster` va arriver a la ligne d'arrive
+   (`nullptr`) avant son adversaire.
+
+2. Imaginons maintenant, la même situation mais que la liste chaine contient un
+   **cycle**. Dans ce cas `faster` va surmenât **attraper** son adversaire
+   `slower`. 
+
+> Une question classique qui se pose dans ce cas est que doit être la vitesse
+dans deux pointeurs pour résoudre ce problème.
+
+La stratégie de référence est de déplacer `slower` toujours par un **seul
+pas**. Pour `faster`, on le déplace par **deux pas**.
+
+
+
