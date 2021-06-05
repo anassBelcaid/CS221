@@ -7,7 +7,7 @@ permalink : /linkedlists1/
 
 <div class=" figcenter">
   <img src="{{ site.url }}{{ site.baseurl }}/assets/linked_lists_logo.png"
-  width="500" height="200">
+  width="600" height="300">
 </div>
 
 
@@ -357,5 +357,17 @@ dans deux pointeurs pour résoudre ce problème.
 La stratégie de référence est de déplacer `slower` toujours par un **seul
 pas**. Pour `faster`, on le déplace par **deux pas**.
 
+
+
+Dans le projet <a href="{{ site.url }}{{
+site.baseurl}}/part4/detect_cycles.zip"> detect_cycles.zip </a>, completer la
+fonction 
+
+```cpp
+bool has_cycle(SinglyLinkedNode *head)
+```
+
+qui reçoit un pointeur sur le `head` d'une liste chainée et renvoie un booléen
+indiquant l'existence d'un cycle dans cette liste.
 
 
